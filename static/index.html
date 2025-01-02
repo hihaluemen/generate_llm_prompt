@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Prompt 生成器</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <h2>任务描述</h2>
+            <div class="model-select">
+                <label for="modelType">选择模型：</label>
+                <select id="modelType">
+                    <option value="openai">OpenAI</option>
+                    <option value="claude">Claude</option>
+                </select>
+            </div>
+            <textarea id="taskInput" placeholder="请输入任务描述..."></textarea>
+            <div class="button-group">
+                <button onclick="generatePrompt()">生成</button>
+                <button onclick="clearTask()" class="clear-btn">清除</button>
+            </div>
+        </div>
+        <div class="output-section">
+            <h2>生成的Prompt</h2>
+            <textarea id="promptOutput" placeholder="生成的 Prompt 将显示在这里，您也可以直接编辑..."></textarea>
+            <button onclick="copyToClipboard()">复制到剪贴板</button>
+        </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- 复制成功提示 -->
+    <div class="copy-toast" id="copyToast">已复制到剪贴板！</div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
